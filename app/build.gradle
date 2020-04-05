@@ -47,4 +47,8 @@ dependencies {
     //Butter Knife
     implementation "com.jakewharton:butterknife:10.0.0"
     kapt "com.jakewharton:butterknife-compiler:10.0.0"
+    //Drawer
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.android.support:appcompat-v7:29.0.0'
+    implementation 'com.android.support:design:29.0.0'
 }

@@ -2,6 +2,7 @@ package com.example.myapplication.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,20 +13,13 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import butterknife.ButterKnife
 import butterknife.OnClick
-import kotlinx.android.synthetic.main.activity_history.list_historic
 import kotlinx.android.synthetic.main.fragment_calculator.*
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.text.SimpleDateFormat
 import java.util.*
 import butterknife.Optional;
-import com.example.myapplication.HistoryAdapter
-import com.example.myapplication.MainActivity
-import com.example.myapplication.Operation
-import com.example.myapplication.R
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
+import com.example.myapplication.*
+import kotlin.collections.ArrayList
 
 const val EXTRA_NAME = "name"
 const val EXTRA_HISTORY = "history"
@@ -65,7 +59,7 @@ class CalculatorFragment : Fragment() {
 
     }
 
-
+    @OnClick (R.id.button_equals)
     fun onClickEquals(view: View){
         val symbol = view.tag.toString()
         Log.i(TAG, "click no botão $symbol")
@@ -129,6 +123,8 @@ class CalculatorFragment : Fragment() {
     @Optional()
     @OnClick (R.id.button_exclamation)
     fun onClickHistory(view: View){
+
+        fragmentManager?.let { NavigationManager.goToHistoryFragment(it) }
 
     }
 
